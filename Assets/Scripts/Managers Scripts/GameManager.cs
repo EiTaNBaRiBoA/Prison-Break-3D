@@ -9,25 +9,38 @@ public sealed class GameManager : MonoBehaviour
     private static GameManager _instance;
     public static GameManager gameManager{ get {return _instance;}}
 
+    public int buildIndex;
     LevelManager levelManager;
 
     private void Awake() {
-        if(_instance==null)
+        int? checking = FindObjectsOfType<GameManager>()?.Length;
+        if (checking > 1)
         {
-            _instance=this;
-            DontDestroyOnLoad(gameObject);
+            Destroy(gameObject);
         }
         else
         {
-            Destroy(gameObject);
+            DontDestroyOnLoad(gameObject);
+            _instance = this;
         }
     }
 
     void Start()
     {
         levelManager = FindObjectOfType<LevelManager>();
-        levelManager.LoadingNextScene(5f);
     }
+
+    public void RequestToLoadScene(int buildIndex)
+    {
+        _instance.buildIndex=buildIndex;
+        SceneManager.LoadScene("Splash");
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
 
 
 }
