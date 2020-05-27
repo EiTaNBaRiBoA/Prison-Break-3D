@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI
+using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
@@ -9,9 +9,9 @@ public class AudioManager : MonoBehaviour
     private static AudioManager _instance;
     public static AudioManager audioManager{ get {return _instance;}}
 
-    //cached
-    public Slider musicVol;
-    public Slider sfxVol;
+    public AudioClip[] music;
+    public AudioClip[] sfx;
+
 
         private void Awake() {
         int? checking = FindObjectsOfType<GameManager>()?.Length;
@@ -25,12 +25,15 @@ public class AudioManager : MonoBehaviour
             _instance = this;
         }
     }
-
-        public void OnSetSound()
+        public void SetMusic(float musicVol)
         {
-            GameManager.gameManager.SetMusicVolume(Mathf.Log10(musicVol.value)*20);
-            GameManager.gameManager.SetSFXVolume(Mathf.Log10(sfxVol.value)*20);
+            GameManager.gameManager.SetMusicVolume(Mathf.Log10(musicVol)*20);
             GameManager.gameManager.GetMusicVolume();
+            
+        }
+        public void SetSFX(float sfxVol)
+        {
+            GameManager.gameManager.SetSFXVolume(Mathf.Log10(sfxVol)*20);
             GameManager.gameManager.GetSFXVolume();
         }
 

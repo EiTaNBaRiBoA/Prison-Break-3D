@@ -11,7 +11,6 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
-        Debug.Log(GameManager.gameManager.buildIndex);
         LoadingNextScene(GameManager.gameManager.buildIndex,2f);
     }
     public void LoadingNextScene(int buildindex, float timeToWait)

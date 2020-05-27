@@ -7,19 +7,19 @@ Prison Break 3D is an singleplayer puzzle game made to excite you and bring chal
 
 >This is an open source project so feel free to copy it and create games with it
 
-# Features
+# Features:
 
   - Loading Screen.
   - splash screen.
   - Save Settings
   - music control.
   - sound NPC control.
+  - Slider in the option settings
+  - Audio mixer music and sfx vol key
 
 # Todo:
   ### Menu Script:
   - Toggle Between menu to settings through lerp
-  - buttons in the option settings
-  - Audio mixer music and sfx vol key
   ### Game Scene:
   - Player: picking,Movement,controller.
   - scriptable items script.
