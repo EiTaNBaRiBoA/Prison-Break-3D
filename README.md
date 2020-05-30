@@ -11,26 +11,27 @@ Prison Break 3D is an singleplayer puzzle game made to excite you and bring chal
   ### Menu Script (fully functioning):
   - Loading Screen.
   - splash screen.
-  - Save Settings
+  - Save Settings.
   - music control.
   - sound NPC control.
-  - Slider in the option settings
-  - Audio mixer music and sfx vol key
-  - Toggle Between menu to settings through lerp
+  - Slider in the option settings.
+  - Audio mixer music and sfx vol key.
+  - Toggle Between menu to settings through lerp.
+  ### Game Scene:
+  - Player: Movement - Jumping, Looking around, View angle limit.
 
 # Todo:
 
   ### Game Scene:
-  - Player: picking,Movement,controller.
+  - Player: Picking items using raycast when click on key.
   - scriptable items script.
   - Losing Canvas.
   - Winning canvas.
   - Challenges levels.
-  - view angle to be caught.
-  - Pause System - settings system.
+  - Pause System UI + timescale 0 (settings system).
   ### GameOver:
-  - Credits
-  - Back to mainMenu
+  - Credits.
+  - Back to mainMenu.
 
 
 ### Additional Info:

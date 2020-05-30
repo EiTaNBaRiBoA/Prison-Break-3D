@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 701558093}
   - component: {fileID: 701558092}
   - component: {fileID: 701558091}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 866596416}
   - component: {fileID: 866596415}
   - component: {fileID: 866596414}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -412,7 +412,7 @@ GameObject:
   - component: {fileID: 1403363282}
   - component: {fileID: 1403363281}
   - component: {fileID: 1403363280}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -508,7 +508,7 @@ PrefabInstance:
     - target: {fileID: 6724467470925781129, guid: 36968ce42ca92d188b7df4881347a2d8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.52
+      value: 14.79
       objectReference: {fileID: 0}
     - target: {fileID: 6724467470925781129, guid: 36968ce42ca92d188b7df4881347a2d8,
         type: 3}
