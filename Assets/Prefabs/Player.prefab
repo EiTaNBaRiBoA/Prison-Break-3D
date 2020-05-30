@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 6724467468899083225}
   - component: {fileID: 6724467468899083226}
   - component: {fileID: 6724467468899083207}
+  - component: {fileID: 6724467470705674681}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -128,6 +129,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 150
   playerBody: {fileID: 6724467470925781129}
+--- !u!114 &6724467470705674681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6724467468899083227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b361639880c27526da217e4bd406d34f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDistance: 5
+  selectableTag: Selectable
+  highLightMaterial: {fileID: 2100000, guid: f51d543ea1a2d963a9598efce3d67048, type: 2}
+  oldMaterial: {fileID: 0}
 --- !u!1 &6724467468935473162
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,8 +292,9 @@ MonoBehaviour:
   controller: {fileID: 6724467470925781128}
   speed: 12
   gravity: -9.81
-  groundCheck: {fileID: 666408711}
   groundDistance: 0.4
+  jumpHeight: 2
+  groundCheck: {fileID: 666408711}
   groundMask:
     serializedVersion: 2
     m_Bits: 256
