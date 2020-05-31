@@ -17,7 +17,7 @@ public class SelectionSystem : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit item;
             item = SelectedItem(ray);
-            if(item.transform!=null){
+            if(item.transform!=null&&item.transform.CompareTag(selectableTag)){
             GameObject pickedItem =  item.transform.gameObject;
             ownedItems.Add(pickedItem.GetComponent<Item>().itemPicked.currentItem.ToString(),pickedItem);
             pickedItem.GetComponent<Item>().Picked();
