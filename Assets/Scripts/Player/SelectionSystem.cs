@@ -5,6 +5,7 @@ using UnityEngine;
 public class SelectionSystem : MonoBehaviour
 {
     public float maxDistance=5f;
+    public Dictionary<string,GameObject> ownedItems = new Dictionary<string, GameObject>();
     [SerializeField] private string selectableTag = "Selectable";
     [SerializeField] private Material highLightMaterial;
     [SerializeField] private Material oldMaterial;
@@ -16,8 +17,34 @@ public class SelectionSystem : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit item;
             item = SelectedItem(ray);
+            if(item.transform!=null){
+            GameObject pickedItem =  item.transform.gameObject;
+            ownedItems.Add(pickedItem.GetComponent<Item>().itemPicked.currentItem.ToString(),pickedItem);
+            pickedItem.GetComponent<Item>().Picked();
+            }
+        }
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            foreach (var ownedItem in ownedItems)
+            {
+                string itemName = ownedItem.Value.GetComponent<Item>().itemPicked.currentItem.ToString();
+                Debug.Log(itemName);
+                CallForAnAction(itemName);
+            }
         }
     }
+
+        private void CallForAnAction(string itemToUse)
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit selectAction;
+            if(Physics.Raycast(ray,out selectAction,maxDistance))
+            {
+                //todo action list to be able to check if can be used like doors and etc;
+                return;
+            }
+
+        }
 
     private RaycastHit SelectedItem(Ray ray)
     {

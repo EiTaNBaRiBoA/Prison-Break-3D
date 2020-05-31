@@ -18,16 +18,18 @@ Prison Break 3D is an singleplayer puzzle game made to excite you and bring chal
   - Audio mixer music and sfx vol key.
   - Toggle Between menu to settings through lerp.
   ### Game Scene:
-  - Player: Movement - Jumping, Looking around, View angle limit.
+  - Player: Movement - Jumping, Looking around, View angle limit, Crouching.
   - Player: Selection Items can be now used with the letter E.
+  - scriptable items script to pick.
+  - F to use the item (for now it shows item list in the future it will be able to activate them).
 
 # Todo:
 
   ### Game Scene:
-  - scriptable items script to pick.
   - Losing Canvas.
   - Winning canvas.
   - Challenges levels.
+  - Activate items.
   - Pause System UI + timescale 0 (settings system).
   ### GameOver:
   - Credits.
