@@ -10,6 +10,7 @@ public class SelectionSystem : MonoBehaviour
     [SerializeField] private Material highLightMaterial;
     [SerializeField] private Material oldMaterial;
     private RaycastHit oldItem;
+    private bool isPickable;
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.E))
@@ -17,10 +18,11 @@ public class SelectionSystem : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit item;
             item = SelectedItem(ray);
-            if(item.transform!=null&&item.transform.CompareTag(selectableTag)){
+            if(item.transform!=null&&isPickable){
             GameObject pickedItem =  item.transform.gameObject;
             ownedItems.Add(pickedItem.GetComponent<Item>().itemPicked.currentItem.ToString(),pickedItem);
             pickedItem.GetComponent<Item>().Picked();
+            isPickable=false;
             }
         }
         if(Input.GetKeyDown(KeyCode.F))
@@ -58,6 +60,7 @@ public class SelectionSystem : MonoBehaviour
                 if (selectionRenderer != null&&item.transform != oldItem.transform)
                 {
                 oldItem=item;
+                isPickable=true;
                 oldMaterial = selectionRenderer.material;
                 selectionRenderer.material = highLightMaterial;
                 }

@@ -22,7 +22,6 @@ public class LevelManager : MonoBehaviour
     {
         yield return new WaitForSeconds(timeToWait);
         AsyncOperation LoadingScene = SceneManager.LoadSceneAsync(buildIndex + 1);
-
         while(!LoadingScene.isDone)
         {
             loadingSlider.value = Mathf.Clamp01(LoadingScene.progress/0.9f);

@@ -22,19 +22,16 @@ Prison Break 3D is an singleplayer puzzle game made to excite you and bring chal
   - Player: Selection Items can be now used with the letter E.
   - scriptable items script to pick.
   - F to use the item (for now it shows item list in the future it will be able to activate them).
+  - Pause System UI.
 
 # Todo:
-
   ### Game Scene:
+  - Level Design.
   - Losing Canvas.
   - Winning canvas.
-  - Challenges levels.
-  - Activate items.
-  - Pause System UI + timescale 0 (settings system).
   ### GameOver:
   - Credits.
   - Back to mainMenu.
-
 
 ### Additional Info:
 **Made with Unity3D**
