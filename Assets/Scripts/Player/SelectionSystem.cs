@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SelectionSystem : MonoBehaviour
 {
+    public Text selectionText;
     public float selectingTries = 2;
     public float maxDistance = 5f;
     public Dictionary<string, GameObject> ownedItems = new Dictionary<string, GameObject>();
@@ -11,6 +13,11 @@ public class SelectionSystem : MonoBehaviour
     [SerializeField] private string actionalbeTag = "Actionable";
     private RaycastHit oldItem;
     private bool isPickable;
+
+    void Start()
+    {
+        selectionText.text = "Selection Tries left: " + selectingTries.ToString();
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
@@ -31,7 +38,9 @@ public class SelectionSystem : MonoBehaviour
             else
             {
                 FindObjectOfType<MenuManager>().LosingCanvas();
+                selectionText.gameObject.SetActive(false);
             }
+            selectionText.text = "Selection Tries left: " + selectingTries.ToString();
         }
         if (Input.GetKeyDown(KeyCode.F))
         {
@@ -49,7 +58,9 @@ public class SelectionSystem : MonoBehaviour
             else
             {
                 FindObjectOfType<MenuManager>().LosingCanvas();
+                selectionText.gameObject.SetActive(false);
             }
+        selectionText.text = "Selection Tries left: " + selectingTries.ToString();
         }
     }
 

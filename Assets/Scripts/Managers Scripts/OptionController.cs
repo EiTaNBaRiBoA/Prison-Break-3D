@@ -9,6 +9,7 @@ public class OptionController : MonoBehaviour
     private MovingCamera movingCamera;
     public Canvas mainMenu;
     public Canvas optionMenu;
+    public Canvas tutorialCanvas;
 
     [SerializeField] Slider musicSlider;
     [SerializeField] Slider sfxSlider;
@@ -32,5 +33,10 @@ public class OptionController : MonoBehaviour
     {
         movingCamera=MoveToOption;
         Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position,optionMenu.transform.position - new Vector3(0,0,10),1f*Time.deltaTime);
+    }
+    public void MoveToGuide()
+    {
+        movingCamera=MoveToGuide;
+        Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position,tutorialCanvas.transform.position - new Vector3(0,0,10),1f*Time.deltaTime);
     }
 }
