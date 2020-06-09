@@ -8,10 +8,12 @@ public class MenuManager : MonoBehaviour
     public Canvas uiCanvas;
     public Canvas losingCanvas;
     private bool isMenuActive;
+    private bool isLost;
     // Start is called before the first frame update
     void Start()
     {
         isMenuActive = false;
+        isLost = false;
         uiCanvas.gameObject.SetActive(false);
         losingCanvas.gameObject.SetActive(false);
     }
@@ -25,26 +27,30 @@ public class MenuManager : MonoBehaviour
 
     private void MenuUI()
     {
-        if (!isMenuActive)
+        if (isLost == false)
         {
-            isMenuActive = true;
-            uiCanvas.gameObject.SetActive(isMenuActive);
-            Time.timeScale=0f;
-            Cursor.lockState = CursorLockMode.None;
-        }
-        else
-        {
-            isMenuActive = false;
-            uiCanvas.gameObject.SetActive(isMenuActive);
-            Time.timeScale=1f;
-            Cursor.lockState = CursorLockMode.Locked;
+            if (!isMenuActive)
+            {
+                isMenuActive = true;
+                uiCanvas.gameObject.SetActive(isMenuActive);
+                Time.timeScale = 0f;
+                Cursor.lockState = CursorLockMode.None;
+            }
+            else
+            {
+                isMenuActive = false;
+                uiCanvas.gameObject.SetActive(isMenuActive);
+                Time.timeScale = 1f;
+                Cursor.lockState = CursorLockMode.Locked;
+            }
         }
     }
 
     public void LosingCanvas()
     {
+        isLost = true;
         losingCanvas.gameObject.SetActive(true);
-        Time.timeScale=0f;
+        Time.timeScale = 0f;
         Cursor.lockState = CursorLockMode.None;
     }
 
@@ -56,13 +62,13 @@ public class MenuManager : MonoBehaviour
 
     public void Restart()
     {
+        Time.timeScale = 1f;
         GameManager.gameManager.RequestToLoadScene(1);
-        Time.timeScale=1f;
     }
 
     public void Menu()
     {
+        Time.timeScale = 1f;
         GameManager.gameManager.RequestToLoadScene(0);
-        Time.timeScale=1f;
     }
 }

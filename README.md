@@ -24,6 +24,7 @@ Prison Break 3D is an singleplayer puzzle game made to excite you and bring chal
   - F to use the item (for now it shows item list in the future it will be able to activate them).
   - Pause System UI.
   - Losing Canvas.
+  - Cops Navmesh and losing system
     ### GameOver:
   - Winning canvas.
   - Credits.
@@ -33,7 +34,6 @@ Prison Break 3D is an singleplayer puzzle game made to excite you and bring chal
 # Todo:
   ### Game Scene:
   - Level Design.
-  - Cops Navmesh (WIP)
   - Sound
 ### Additional Info:
 **Made with Unity3D**

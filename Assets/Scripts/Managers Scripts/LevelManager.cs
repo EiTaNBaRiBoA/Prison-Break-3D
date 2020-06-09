@@ -8,7 +8,10 @@ public class LevelManager : MonoBehaviour
 {
     public Slider loadingSlider;
 
-
+    void Awake()
+    {
+        Time.timeScale = 1f;
+    }
     void Start()
     {
         LoadingNextScene(GameManager.gameManager.buildIndex,2f);

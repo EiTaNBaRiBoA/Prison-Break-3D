@@ -13,6 +13,7 @@ public class SelectionSystem : MonoBehaviour
     [SerializeField] private string actionalbeTag = "Actionable";
     private RaycastHit oldItem;
     private bool isPickable;
+    private bool findAction;
 
     void Start()
     {
@@ -22,7 +23,7 @@ public class SelectionSystem : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (selectingTries > 0)
+            if (selectingTries >= 0)
             {
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit item;
@@ -44,15 +45,21 @@ public class SelectionSystem : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.F))
         {
-            if (selectingTries > 0)
+            if (selectingTries >= 0)
             {
-                if (ownedItems.Count==0) { selectingTries--; }
-
-                foreach (var ownedItem in ownedItems)
+                findAction = false;
+                if (ownedItems.Count != 0)
                 {
-                    string itemName = ownedItem.Value.GetComponent<Item>().itemPicked.currentItem.ToString();
-                    Debug.Log(itemName);
-                    CallForAnAction(itemName);
+                    foreach (var ownedItem in ownedItems)
+                    {
+                        string itemName = ownedItem.Value.GetComponent<Item>().itemPicked.currentItem.ToString();
+                        CallForAnAction(itemName);
+
+                    }
+                }
+                if (findAction == false)
+                {
+                    selectingTries--;
                 }
             }
             else
@@ -60,7 +67,7 @@ public class SelectionSystem : MonoBehaviour
                 FindObjectOfType<MenuManager>().LosingCanvas();
                 selectionText.gameObject.SetActive(false);
             }
-        selectionText.text = "Selection Tries left: " + selectingTries.ToString();
+            selectionText.text = "Selection Tries left: " + selectingTries.ToString();
         }
     }
 
@@ -73,16 +80,12 @@ public class SelectionSystem : MonoBehaviour
             Transform selection = selectAction.transform;
             if (selection.CompareTag(actionalbeTag))
             {
-                //todo each item
+                if (itemToUse == selectAction.transform.gameObject.GetComponent<Item>().itemPicked.currentItem.ToString())
+                {
+                    findAction = true;
+                    // todo FindObjectOfType<> and do something/animation
+                }
             }
-            else
-            {
-                selectingTries--;
-            }
-        }
-        else
-        {
-            selectingTries--;
         }
 
     }
