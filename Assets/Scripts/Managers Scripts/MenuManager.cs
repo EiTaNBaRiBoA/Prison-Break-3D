@@ -5,15 +5,15 @@ using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
-    public Button resume;
-    public Button options;
     public Canvas uiCanvas;
+    public Canvas losingCanvas;
     private bool isMenuActive;
     // Start is called before the first frame update
     void Start()
     {
         isMenuActive = false;
         uiCanvas.gameObject.SetActive(false);
+        losingCanvas.gameObject.SetActive(false);
     }
     void Update()
     {
@@ -39,6 +39,13 @@ public class MenuManager : MonoBehaviour
             Time.timeScale=1f;
             Cursor.lockState = CursorLockMode.Locked;
         }
+    }
+
+    private void LosingCanvas()
+    {
+        losingCanvas.gameObject.SetActive(true);
+        Time.timeScale=0f;
+        Cursor.lockState = CursorLockMode.None;
     }
 
 
