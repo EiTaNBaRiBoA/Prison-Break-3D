@@ -41,7 +41,7 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    private void LosingCanvas()
+    public void LosingCanvas()
     {
         losingCanvas.gameObject.SetActive(true);
         Time.timeScale=0f;

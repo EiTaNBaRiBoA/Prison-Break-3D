@@ -4,49 +4,77 @@ using UnityEngine;
 
 public class SelectionSystem : MonoBehaviour
 {
-    public float maxDistance=5f;
-    public Dictionary<string,GameObject> ownedItems = new Dictionary<string, GameObject>();
+    public float selectingTries = 2;
+    public float maxDistance = 5f;
+    public Dictionary<string, GameObject> ownedItems = new Dictionary<string, GameObject>();
     [SerializeField] private string selectableTag = "Selectable";
-    [SerializeField] private Material highLightMaterial;
-    [SerializeField] private Material oldMaterial;
+    [SerializeField] private string actionalbeTag = "Actionable";
     private RaycastHit oldItem;
     private bool isPickable;
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit item;
-            item = SelectedItem(ray);
-            if(item.transform!=null&&isPickable){
-            GameObject pickedItem =  item.transform.gameObject;
-            ownedItems.Add(pickedItem.GetComponent<Item>().itemPicked.currentItem.ToString(),pickedItem);
-            pickedItem.GetComponent<Item>().Picked();
-            isPickable=false;
+            if (selectingTries > 0)
+            {
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit item;
+                item = SelectedItem(ray);
+                if (item.transform != null && isPickable)
+                {
+                    GameObject pickedItem = item.transform.gameObject;
+                    ownedItems.Add(pickedItem.GetComponent<Item>().itemPicked.currentItem.ToString(), pickedItem);
+                    pickedItem.GetComponent<Item>().Picked();
+                    isPickable = false;
+                }
+            }
+            else
+            {
+                FindObjectOfType<MenuManager>().LosingCanvas();
             }
         }
-        if(Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F))
         {
-            foreach (var ownedItem in ownedItems)
+            if (selectingTries > 0)
             {
-                string itemName = ownedItem.Value.GetComponent<Item>().itemPicked.currentItem.ToString();
-                Debug.Log(itemName);
-                CallForAnAction(itemName);
+                if (ownedItems.Count==0) { selectingTries--; }
+
+                foreach (var ownedItem in ownedItems)
+                {
+                    string itemName = ownedItem.Value.GetComponent<Item>().itemPicked.currentItem.ToString();
+                    Debug.Log(itemName);
+                    CallForAnAction(itemName);
+                }
+            }
+            else
+            {
+                FindObjectOfType<MenuManager>().LosingCanvas();
             }
         }
     }
 
-        private void CallForAnAction(string itemToUse)
+    private void CallForAnAction(string itemToUse)
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit selectAction;
+        if (Physics.Raycast(ray, out selectAction, maxDistance))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit selectAction;
-            if(Physics.Raycast(ray,out selectAction,maxDistance))
+            Transform selection = selectAction.transform;
+            if (selection.CompareTag(actionalbeTag))
             {
-                //todo action list to be able to check if can be used like doors and etc;
-                return;
+                //todo each item
             }
-
+            else
+            {
+                selectingTries--;
+            }
         }
+        else
+        {
+            selectingTries--;
+        }
+
+    }
 
     private RaycastHit SelectedItem(Ray ray)
     {
@@ -57,19 +85,24 @@ public class SelectionSystem : MonoBehaviour
             if (selection.CompareTag(selectableTag))
             {
                 Renderer selectionRenderer = selection.GetComponent<Renderer>();
-                if (selectionRenderer != null&&item.transform != oldItem.transform)
+                if (selectionRenderer != null && item.transform != oldItem.transform)
                 {
-                oldItem=item;
-                isPickable=true;
-                oldMaterial = selectionRenderer.material;
-                selectionRenderer.material = highLightMaterial;
+                    oldItem = item;
+                    isPickable = true;
                 }
             }
+            else
+            {
+                selectingTries--;
+            }
         }
-        else if (oldItem.transform!=null)
+        else if (oldItem.transform != null)
         {
-            oldItem.transform.GetComponent<Renderer>().material = oldMaterial;
             oldItem = new RaycastHit();
+        }
+        else if (item.transform == null)
+        {
+            selectingTries--;
         }
 
         return item;
