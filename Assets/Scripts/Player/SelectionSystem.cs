@@ -23,7 +23,7 @@ public class SelectionSystem : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (selectingTries >= 0)
+            if (selectingTries > 0)
             {
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit item;
@@ -45,7 +45,7 @@ public class SelectionSystem : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.F))
         {
-            if (selectingTries >= 0)
+            if (selectingTries > 0)
             {
                 findAction = false;
                 if (ownedItems.Count != 0)
@@ -83,6 +83,7 @@ public class SelectionSystem : MonoBehaviour
                 if (itemToUse == selectAction.transform.gameObject.GetComponent<Item>().itemPicked.currentItem.ToString())
                 {
                     findAction = true;
+                    selectAction.transform.gameObject.GetComponent<Item>().Picked();
                     // todo FindObjectOfType<> and do something/animation
                 }
             }
