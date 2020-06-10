@@ -9,8 +9,8 @@ public class Cop : MonoBehaviour
     float maxDistance = 10f;
     public NavMeshAgent agent;
     public GameObject[] waypoints;
-    public float maxViewAngle = 25f;
-    public float minViewAngle = -25f;
+    public float maxViewAngle = 45f;
+    public float minViewAngle = -45f;
 
     int waypoint = 0;
     void Start()

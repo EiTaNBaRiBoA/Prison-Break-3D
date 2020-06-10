@@ -167,8 +167,8 @@ MonoBehaviour:
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
-  maxViewAngle: 25
-  minViewAngle: -25
+  maxViewAngle: 45
+  minViewAngle: -45
 --- !u!1 &8115554975174073268
 GameObject:
   m_ObjectHideFlags: 0
