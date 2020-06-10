@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class Cop : MonoBehaviour
 {
     public GameObject player;
-    float maxDistance = 5f;
+    float maxDistance = 10f;
     public NavMeshAgent agent;
     public GameObject[] waypoints;
     public float maxViewAngle = 25f;
@@ -25,9 +25,17 @@ public class Cop : MonoBehaviour
             float angle = Vector3.Angle(transform.forward, player.transform.position - transform.position);
             if (angle >= minViewAngle && angle <= maxViewAngle)
             {
-                    agent.isStopped = true;
-                    StopCoroutine(Walking());
-                    FindObjectOfType<MenuManager>().LosingCanvas();
+                RaycastHit hit;
+                Ray ray = new Ray(transform.position, player.transform.position - transform.position);
+                if (Physics.Raycast(ray, out hit, maxDistance))
+                {
+                    if (hit.transform.CompareTag("Player"))
+                    {
+                        agent.isStopped = true;
+                        StopCoroutine(Walking());
+                        FindObjectOfType<MenuManager>().LosingCanvas();
+                    }
+                }
             }
             else
             {
