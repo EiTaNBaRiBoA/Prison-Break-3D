@@ -35,7 +35,7 @@ Prison Break 3D is an singleplayer puzzle game made to excite you and bring chal
 
 # Todo:
   ### Game Scene:
-  -polishing
+  - Polishing and adding additional features
 ### Additional Info:
 **Made with Unity3D**
 
