@@ -6,10 +6,10 @@ public class PlayerMovement : MonoBehaviour
 {
     #region Player Movement
     public CharacterController controller;
-    public float speed= 12f;
-    public float gravity =-9.81f;
+    public float speed= 6f;
+    public float gravity =-30f;
     public float groundDistance = 0.4f;
-    public float jumpHeight = 2f;
+    public float jumpHeight = 1f;
     public Transform groundCheck;
     public LayerMask groundMask;
     Vector3 velocity;
@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     #endregion
     #region Player Crouch
     private float playerOriginalHeight;
-    public float playerCrouchHeight = 0.5f;
+    private float playerCrouchHeight = 0.1f;
     bool isCrouch;
     #endregion
     
@@ -58,5 +58,6 @@ public class PlayerMovement : MonoBehaviour
     void Crouch()
     {
         controller.height = isCrouch ? playerCrouchHeight:  playerOriginalHeight;
+        gameObject.transform.localScale = isCrouch?  new Vector3(1f,0.3f,1f):new Vector3(1f,0.6f,1f) ;
     }
 }
