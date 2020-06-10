@@ -17,7 +17,7 @@ Prison Break 3D is an singleplayer puzzle game made to excite you and bring chal
   - Slider in the option settings.
   - Audio mixer music and sfx vol key.
   - Toggle Between menu to settings through lerp.
-  ### Game Scene:
+  ### Game Scene (fully functioning):
   - Player: Movement - Jumping, Looking around, View angle limit, Crouching.
   - Player: Selection Items can be now used with the letter E.
   - scriptable items script to pick.
@@ -25,7 +25,9 @@ Prison Break 3D is an singleplayer puzzle game made to excite you and bring chal
   - Pause System UI.
   - Losing Canvas.
   - Cops Navmesh and losing system
-    ### GameOver:
+  - Level Design.
+  - Sound
+    ### GameOver (fully functioning):
   - Winning canvas.
   - Credits.
   - Back to mainMenu.
@@ -33,8 +35,7 @@ Prison Break 3D is an singleplayer puzzle game made to excite you and bring chal
 
 # Todo:
   ### Game Scene:
-  - Level Design.
-  - Sound
+  -polishing
 ### Additional Info:
 **Made with Unity3D**
 
