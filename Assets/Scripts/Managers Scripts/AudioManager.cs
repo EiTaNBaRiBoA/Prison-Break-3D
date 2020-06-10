@@ -27,14 +27,14 @@ public class AudioManager : MonoBehaviour
     }
         public void SetMusic(float musicVol)
         {
-            GameManager.gameManager.SetMusicVolume(Mathf.Log10(musicVol)*20);
-            GameManager.gameManager.GetMusicVolume();
+            GameManager.gameManager.SetMusicVolume(musicVol);
+            GameManager.gameManager.GetMusicVolume(Mathf.Log10(musicVol)*20);
             
         }
         public void SetSFX(float sfxVol)
         {
-            GameManager.gameManager.SetSFXVolume(Mathf.Log10(sfxVol)*20);
-            GameManager.gameManager.GetSFXVolume();
+            GameManager.gameManager.SetSFXVolume(sfxVol);
+            GameManager.gameManager.GetSFXVolume(Mathf.Log10(sfxVol)*20);
         }
 
 

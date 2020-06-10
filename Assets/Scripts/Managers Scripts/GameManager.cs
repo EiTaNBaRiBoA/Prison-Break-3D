@@ -65,14 +65,23 @@ public sealed class GameManager : MonoBehaviour
     {
         PlayerPrefs.SetFloat(SFX_VOLUME_KEY,volume);
     }
-        public void GetMusicVolume()
+        public void GetMusicVolume(float volume)
     {
-        musicMixer.SetFloat(MUSIC_VOLUME_KEY,PlayerPrefs.GetFloat(MUSIC_VOLUME_KEY)); 
+        musicMixer.SetFloat(MUSIC_VOLUME_KEY,volume); 
     }
     
-    public void GetSFXVolume()
+    public void GetSFXVolume(float volume)
     {
-        sfxMixer.SetFloat(SFX_VOLUME_KEY,PlayerPrefs.GetFloat(SFX_VOLUME_KEY)); 
+        sfxMixer.SetFloat(SFX_VOLUME_KEY,volume); 
+    }
+
+    public float ReturnSFXVolume()
+    {
+        return PlayerPrefs.GetFloat(SFX_VOLUME_KEY);
+    }
+    public float ReturnMusicVolume()
+    {
+        return PlayerPrefs.GetFloat(MUSIC_VOLUME_KEY);
     }
     #endregion
 }

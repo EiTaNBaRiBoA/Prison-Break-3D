@@ -14,12 +14,10 @@ public class OptionController : MonoBehaviour
     [SerializeField] public Slider musicSlider;
     [SerializeField] public Slider sfxSlider;
 
-    const string MUSIC_VOLUME_KEY = "MusicVolume";
-    const string SFX_VOLUME_KEY = "SFXVolume";
 
     private void Start() {
-        musicSlider.value = PlayerPrefs.GetFloat(MUSIC_VOLUME_KEY);
-        sfxSlider.value = PlayerPrefs.GetFloat(SFX_VOLUME_KEY);
+        musicSlider.value = GameManager.gameManager.ReturnMusicVolume();
+        sfxSlider.value = GameManager.gameManager.ReturnSFXVolume();
     }
     private void Update() {
         movingCamera?.Invoke();
