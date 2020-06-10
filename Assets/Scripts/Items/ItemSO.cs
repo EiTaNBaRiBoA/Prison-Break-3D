@@ -7,7 +7,7 @@ public class ItemSO : ScriptableObject
 {
     public bool isPickable;
     public enum typeItem {
-        Shovel, // for the puzzle 1
+        Hammer, // for the puzzle 1
         Stone, // for the puzzle 3
         Card, // puzzle 4
         Key, // for the elevator puzzle 5

@@ -979,7 +979,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "I hope you liked our game which was made by:\nEitan Shapirshtein\u05D3-
-    Programmer/Narrative\nRoye - Programmer\nTomer - 3D Producer"
+    Programmer/Narrative\nRoye Shomroni - Programmer\nTomer Zatorski - 3D Producer"
 --- !u!222 &1890087904
 CanvasRenderer:
   m_ObjectHideFlags: 0
