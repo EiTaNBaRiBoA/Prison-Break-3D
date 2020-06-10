@@ -3235,13 +3235,26 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5690393112849279448}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1878947902 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5292555425265494588, guid: a0eaca165a5b932a78e2d57600c9bb93,
-    type: 3}
-  m_PrefabInstance: {fileID: 5690393112849279448}
+--- !u!95 &1878947900
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1878947904
+  m_GameObject: {fileID: 1878947899}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3621d07f77008d6daa3a63c932566dd3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1878947901
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3250,9 +3263,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1878947899}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f00c63dc068cb02d58d392ff7c2e23bf, type: 3}
+  m_Script: {fileID: 11500000, guid: 8c424f213bf517eaf8c8b3f37f55aaca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  button: {fileID: 336051763}
+--- !u!4 &1878947902 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5292555425265494588, guid: a0eaca165a5b932a78e2d57600c9bb93,
+    type: 3}
+  m_PrefabInstance: {fileID: 5690393112849279448}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1881549088
 GameObject:
   m_ObjectHideFlags: 0
@@ -4052,6 +4072,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5292555425265494588, guid: a0eaca165a5b932a78e2d57600c9bb93,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -110.429
+      objectReference: {fileID: 0}
+    - target: {fileID: 5292555425265494588, guid: a0eaca165a5b932a78e2d57600c9bb93,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.66
+      objectReference: {fileID: 0}
     - target: {fileID: 5690393113821654048, guid: a0eaca165a5b932a78e2d57600c9bb93,
         type: 3}
       propertyPath: m_LocalPosition.x
