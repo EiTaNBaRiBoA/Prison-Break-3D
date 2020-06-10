@@ -11,8 +11,8 @@ public class OptionController : MonoBehaviour
     public Canvas optionMenu;
     public Canvas tutorialCanvas;
 
-    [SerializeField] Slider musicSlider;
-    [SerializeField] Slider sfxSlider;
+    [SerializeField] public Slider musicSlider;
+    [SerializeField] public Slider sfxSlider;
 
     const string MUSIC_VOLUME_KEY = "MusicVolume";
     const string SFX_VOLUME_KEY = "SFXVolume";
