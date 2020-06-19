@@ -58,6 +58,7 @@ public class PlayerMovement : MonoBehaviour
     void Crouch()
     {
         controller.height = isCrouch ? playerCrouchHeight:  playerOriginalHeight;
-        gameObject.transform.localScale = isCrouch?  new Vector3(1f,0.3f,1f):new Vector3(1f,0.6f,1f) ;
+        gameObject.transform.localScale = isCrouch ? new Vector3(1f,0.3f,1f):new Vector3(1f,0.6f,1f);
+        speed = isCrouch ? 3f : 6f;
     }
 }

@@ -23,9 +23,10 @@ public class SelectionSystem : MonoBehaviour
 
     private void RayCastItem()
     {
-        Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray mouseRay = new Ray(Camera.main.transform.position,Camera.main.transform.forward);
         RaycastHit selectionCast;
-        if (Physics.Raycast(mouseRay, out selectionCast, maxDistance))
+        if (Physics.Raycast(mouseRay, out selectionCast, maxDistance, ~(1<<9)))
         {
             GameObject item = selectionCast.transform.gameObject;
             if (item.CompareTag(selectableTag))
