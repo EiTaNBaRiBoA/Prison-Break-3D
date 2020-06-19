@@ -76,7 +76,8 @@ The whole game environment and NPC and the player will be in low poly 3D.
 - Remove selection tries.
 - Combining the hot key F for using items and E for picking items to one hotkey E.
 - Make float for detection time to allow the player to hide and not lose so quickly.
-- Detection when near and standing
+- Detection when near and standing.
+
 ### Additional Info:
 **Made with Unity3D**
 
