@@ -31,14 +31,13 @@ public class Cop : MonoBehaviour
     {
         if (CopScanArea() || Vector3.Distance(player.transform.position, this.transform.position) <= maxDistance && !FindObjectOfType<PlayerMovement>().isCrouch)
         {
-
             agent.ResetPath();
             StopCoroutine(Walking());
             Ray ray = new Ray(transform.position, player.transform.position - transform.position);
             RaycastHit playerCheck;
             if (Physics.Raycast(ray, out playerCheck, maxDistance))
             {
-                Debug.Log(playerCheck.transform.gameObject.tag);
+                Debug.Log(playerCheck.transform.tag);
                 if (playerCheck.transform.CompareTag("Player"))
                 {
                     transform.rotation = Quaternion.Slerp(transform.rotation,
@@ -55,6 +54,10 @@ public class Cop : MonoBehaviour
                         }
 
                     }
+                }
+                else
+                {
+                    StartCoroutine(Walking());
                 }
             }
             else if (CopScanArea())
