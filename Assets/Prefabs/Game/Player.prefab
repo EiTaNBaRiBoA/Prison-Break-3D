@@ -141,8 +141,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b361639880c27526da217e4bd406d34f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectionText: {fileID: 0}
-  selectingTries: 2
   maxDistance: 5
   selectableTag: Selectable
   actionalbeTag: Actionable
@@ -299,3 +297,4 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 256
+  isCrouch: 0

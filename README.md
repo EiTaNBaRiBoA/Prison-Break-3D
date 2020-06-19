@@ -55,7 +55,6 @@ The whole game environment and NPC and the player will be in low poly 3D.
   
 
 # Todo:
-
 - Add Flash light for the cops to show their vision through their eyes (white when scanning, Red when detecting).
 - Add puzzle 4, puzzle 5, puzzle 6 (need to GDD).
 - Add music backgrounds for each place and scene and SFX for foot steps and voice acting.
@@ -77,6 +76,7 @@ The whole game environment and NPC and the player will be in low poly 3D.
 - Remove selection tries.
 - Combining the hot key F for using items and E for picking items to one hotkey E.
 - Make float for detection time to allow the player to hide and not lose so quickly.
+- Detection when near and standing
 ### Additional Info:
 **Made with Unity3D**
 

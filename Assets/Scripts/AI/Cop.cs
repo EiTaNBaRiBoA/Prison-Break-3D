@@ -9,8 +9,9 @@ public class Cop : MonoBehaviour
     float maxDistance = 10f;
     public NavMeshAgent agent;
     public GameObject[] waypoints;
-    private float maxViewAngle = 35f;
-    private float minViewAngle = -35f;
+    private float maxViewAngle = 45f;
+    private float minViewAngle = -45f;
+    private float timeAgentConfirm = 2f;
 
     int waypoint = 0;
     void Start()
@@ -20,28 +21,49 @@ public class Cop : MonoBehaviour
     }
     private void Update()
     {
-        if(!FindObjectOfType<MenuManager>().isLost){
-        StartCoroutine(AISeesTarget());
+        if (!FindObjectOfType<MenuManager>().isLost)
+        {
+            StartCoroutine(AISeesTarget());
         }
     }
 
     IEnumerator AISeesTarget()
     {
-        if(CopScanArea())
+        if (CopScanArea() || Vector3.Distance(player.transform.position, this.transform.position) <= maxDistance && !FindObjectOfType<PlayerMovement>().isCrouch)
         {
-        agent.isStopped = true;
-        StopCoroutine(Walking());
-        yield return new WaitForSeconds(2f);
-        if(CopScanArea())
+
+            agent.ResetPath();
+            StopCoroutine(Walking());
+            transform.rotation = Quaternion.Slerp(transform.rotation,
+             Quaternion.LookRotation(player.transform.position - transform.position),
+              timeAgentConfirm * Time.deltaTime);
+            if (Vector3.Angle(transform.forward, player.transform.position - transform.position) <= 35 && CopScanArea())
             {
-            FindObjectOfType<MenuManager>().LosingCanvas();
+                    ConfirmTarget(); // going towards targets to confirm with red eyes
+
+                    yield return new WaitForSeconds(timeAgentConfirm);
+                    if (CopScanArea())
+                    {
+                        FindObjectOfType<MenuManager>().LosingCanvas();
+                    }
+
             }
+            else if(CopScanArea())
+            {
+                ConfirmTarget(); // going towards targets to confirm with red eyes
+
+                yield return new WaitForSeconds(timeAgentConfirm);
+                if (CopScanArea())
+                {
+                    FindObjectOfType<MenuManager>().LosingCanvas();
+                }
+            }
+
+
         }
-        else if(!CopScanArea())
+        else
         {
-            agent.isStopped = false;
             StartCoroutine(Walking());
-            yield return null;
         }
         yield return null;
     }
@@ -75,7 +97,12 @@ public class Cop : MonoBehaviour
         {
             waypoint = Random.Range(0, waypoints.Length);
         }
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(timeAgentConfirm);
+    }
+
+    public void ConfirmTarget()
+    {
+        agent.SetDestination(player.transform.position);
     }
 
 }

@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     #region Player Crouch
     private float playerOriginalHeight;
     private float playerCrouchHeight = 0.1f;
-    bool isCrouch;
+    public bool isCrouch;
     #endregion
     
     void Start()
