@@ -34,21 +34,30 @@ public class Cop : MonoBehaviour
 
             agent.ResetPath();
             StopCoroutine(Walking());
-            transform.rotation = Quaternion.Slerp(transform.rotation,
-             Quaternion.LookRotation(player.transform.position - transform.position),
-              timeAgentConfirm * Time.deltaTime);
-            if (Vector3.Angle(transform.forward, player.transform.position - transform.position) <= 35 && CopScanArea())
+            Ray ray = new Ray(transform.position, player.transform.position - transform.position);
+            RaycastHit playerCheck;
+            if (Physics.Raycast(ray, out playerCheck, maxDistance))
             {
-                    ConfirmTarget(); // going towards targets to confirm with red eyes
-
-                    yield return new WaitForSeconds(timeAgentConfirm);
-                    if (CopScanArea())
+                Debug.Log(playerCheck.transform.gameObject.tag);
+                if (playerCheck.transform.CompareTag("Player"))
+                {
+                    transform.rotation = Quaternion.Slerp(transform.rotation,
+                     Quaternion.LookRotation(player.transform.position - transform.position),
+                      timeAgentConfirm * Time.deltaTime);
+                    if (Vector3.Angle(transform.forward, player.transform.position - transform.position) <= 35 && CopScanArea())
                     {
-                        FindObjectOfType<MenuManager>().LosingCanvas();
-                    }
+                        ConfirmTarget(); // going towards targets to confirm with red eyes
 
+                        yield return new WaitForSeconds(timeAgentConfirm);
+                        if (CopScanArea())
+                        {
+                            FindObjectOfType<MenuManager>().LosingCanvas();
+                        }
+
+                    }
+                }
             }
-            else if(CopScanArea())
+            else if (CopScanArea())
             {
                 ConfirmTarget(); // going towards targets to confirm with red eyes
 
