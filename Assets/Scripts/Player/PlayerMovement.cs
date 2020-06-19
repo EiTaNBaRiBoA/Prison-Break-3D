@@ -6,10 +6,10 @@ public class PlayerMovement : MonoBehaviour
 {
     #region Player Movement
     public CharacterController controller;
-    public float speed= 6f;
-    public float gravity =-30f;
-    public float groundDistance = 0.4f;
-    public float jumpHeight = 1f;
+    private float speed= 6f;
+    private float gravity =-30f;
+    private float groundDistance = 0.4f;
+    private float jumpHeight = 1f;
     public Transform groundCheck;
     public LayerMask groundMask;
     Vector3 velocity;
