@@ -20,6 +20,33 @@ public class Cop : MonoBehaviour
     }
     private void Update()
     {
+        if(!FindObjectOfType<MenuManager>().isLost){
+        StartCoroutine(AISeesTarget());
+        }
+    }
+
+    IEnumerator AISeesTarget()
+    {
+        if(CopScanArea())
+        {
+        agent.isStopped = true;
+        StopCoroutine(Walking());
+        yield return new WaitForSeconds(2f);
+        if(CopScanArea())
+            {
+            FindObjectOfType<MenuManager>().LosingCanvas();
+            }
+        }
+        else if(!CopScanArea())
+        {
+            agent.isStopped = false;
+            StartCoroutine(Walking());
+            yield return null;
+        }
+        yield return null;
+    }
+    private bool CopScanArea()
+    {
         if (Vector3.Distance(player.transform.position, this.transform.position) <= maxDistance)
         {
             float angle = Vector3.Angle(transform.forward, player.transform.position - transform.position);
@@ -31,25 +58,16 @@ public class Cop : MonoBehaviour
                 {
                     if (hit.transform.CompareTag("Player"))
                     {
-                        agent.isStopped = true;
-                        StopCoroutine(Walking());
-                        FindObjectOfType<MenuManager>().LosingCanvas();
+                        return true;
                     }
+                    return false;
                 }
+                return false;
             }
-            else
-            {
-                agent.isStopped = false;
-                StartCoroutine(Walking());
-            }
+            return false;
         }
-        else
-        {
-            agent.isStopped = false;
-            StartCoroutine(Walking());
-        }
+        return false;
     }
-
     IEnumerator Walking()
     {
         agent.SetDestination(new Vector3(waypoints[waypoint].transform.position.x, transform.position.y, waypoints[waypoint].transform.position.z));

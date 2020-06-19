@@ -11,6 +11,7 @@ public class LevelManager : MonoBehaviour
     void Awake()
     {
         Time.timeScale = 1f;
+        Cursor.visible = true;
     }
     void Start()
     {

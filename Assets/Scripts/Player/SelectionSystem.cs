@@ -5,121 +5,53 @@ using UnityEngine.UI;
 
 public class SelectionSystem : MonoBehaviour
 {
-    public Text selectionText;
-    public float selectingTries = 2;
     public float maxDistance = 5f;
     public Dictionary<string, GameObject> ownedItems = new Dictionary<string, GameObject>();
     [SerializeField] private string selectableTag = "Selectable";
     [SerializeField] private string actionalbeTag = "Actionable";
-    private RaycastHit oldItem;
-    private bool isPickable;
-    private bool findAction;
 
-    void Start()
-    {
-        selectionText.text = "Selection Tries left: " + selectingTries.ToString();
-    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (selectingTries > 0)
-            {
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit item;
-                item = SelectedItem(ray);
-                if (item.transform != null && isPickable)
-                {
-                    GameObject pickedItem = item.transform.gameObject;
-                    ownedItems.Add(pickedItem.GetComponent<Item>().itemPicked.currentItem.ToString(), pickedItem);
-                    pickedItem.GetComponent<Item>().Picked();
-                    isPickable = false;
-                }
-            }
-            else
-            {
-                FindObjectOfType<MenuManager>().LosingCanvas();
-                selectionText.gameObject.SetActive(false);
-            }
-            selectionText.text = "Selection Tries left: " + selectingTries.ToString();
+            RayCastItem();
         }
-        if (Input.GetKeyDown(KeyCode.F))
+    }
+
+
+
+
+    private void RayCastItem()
+    {
+        Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit selectionCast;
+        if (Physics.Raycast(mouseRay, out selectionCast, maxDistance))
         {
-            if (selectingTries > 0)
+            GameObject item = selectionCast.transform.gameObject;
+            if (item.CompareTag(selectableTag))
             {
-                findAction = false;
+                PickItem(item);
+            }
+            else if (item.CompareTag(actionalbeTag))
+            {
                 if (ownedItems.Count != 0)
                 {
                     foreach (var ownedItem in ownedItems)
                     {
                         string itemName = ownedItem.Value.GetComponent<Item>().itemPicked.currentItem.ToString();
-                        CallForAnAction(itemName);
-
+                        if (itemName == item.GetComponent<Item>().itemPicked.currentItem.ToString())
+                        {
+                            item.GetComponent<Item>().Picked();
+                            // todo FindObjectOfType<> and do something/animation
+                        }
                     }
                 }
-                if (findAction == false)
-                {
-                    selectingTries--;
-                }
             }
-            else
-            {
-                FindObjectOfType<MenuManager>().LosingCanvas();
-                selectionText.gameObject.SetActive(false);
-            }
-            selectionText.text = "Selection Tries left: " + selectingTries.ToString();
         }
     }
-
-    private void CallForAnAction(string itemToUse)
+    private void PickItem(GameObject item)
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit selectAction;
-        if (Physics.Raycast(ray, out selectAction, maxDistance))
-        {
-            Transform selection = selectAction.transform;
-            if (selection.CompareTag(actionalbeTag))
-            {
-                if (itemToUse == selectAction.transform.gameObject.GetComponent<Item>().itemPicked.currentItem.ToString())
-                {
-                    findAction = true;
-                    selectAction.transform.gameObject.GetComponent<Item>().Picked();
-                    // todo FindObjectOfType<> and do something/animation
-                }
-            }
-        }
-
-    }
-
-    private RaycastHit SelectedItem(Ray ray)
-    {
-        RaycastHit item;
-        if (Physics.Raycast(ray, out item, maxDistance))
-        {
-            Transform selection = item.transform;
-            if (selection.CompareTag(selectableTag))
-            {
-                Renderer selectionRenderer = selection.GetComponent<Renderer>();
-                if (selectionRenderer != null && item.transform != oldItem.transform)
-                {
-                    oldItem = item;
-                    isPickable = true;
-                }
-            }
-            else
-            {
-                selectingTries--;
-            }
-        }
-        else if (oldItem.transform != null)
-        {
-            oldItem = new RaycastHit();
-        }
-        else if (item.transform == null)
-        {
-            selectingTries--;
-        }
-
-        return item;
+        ownedItems.Add(item.GetComponent<Item>().itemPicked.currentItem.ToString(), item);
+        item.GetComponent<Item>().Picked();
     }
 }

@@ -7,8 +7,8 @@ public class MenuManager : MonoBehaviour
 {
     public Canvas uiCanvas;
     public Canvas losingCanvas;
-    private bool isMenuActive;
-    private bool isLost;
+    public bool isLost;
+    bool isMenuActive;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,29 +29,24 @@ public class MenuManager : MonoBehaviour
     {
         if (isLost == false)
         {
-            if (!isMenuActive)
-            {
-                isMenuActive = true;
-                uiCanvas.gameObject.SetActive(isMenuActive);
-                Time.timeScale = 0f;
-                Cursor.lockState = CursorLockMode.None;
-            }
-            else
-            {
-                isMenuActive = false;
-                uiCanvas.gameObject.SetActive(isMenuActive);
-                Time.timeScale = 1f;
-                Cursor.lockState = CursorLockMode.Locked;
-            }
+            if (!isMenuActive){OpenMenuUI(uiCanvas.gameObject,true,0,CursorLockMode.None);}
+            else {OpenMenuUI(uiCanvas.gameObject,false,1,CursorLockMode.Locked);}
         }
+    }
+
+    private void OpenMenuUI(GameObject menuType,bool menuActivation,float timeScale,CursorLockMode typeCursor)
+    {
+        menuType.SetActive(menuActivation);
+        isMenuActive = menuActivation;
+        Cursor.visible = menuActivation;
+        Time.timeScale =timeScale;
+        Cursor.lockState = typeCursor;
     }
 
     public void LosingCanvas()
     {
         isLost = true;
-        losingCanvas.gameObject.SetActive(true);
-        Time.timeScale = 0f;
-        Cursor.lockState = CursorLockMode.None;
+        OpenMenuUI(losingCanvas.gameObject,true,0,CursorLockMode.None);
     }
 
 
@@ -62,13 +57,18 @@ public class MenuManager : MonoBehaviour
 
     public void Restart()
     {
-        Time.timeScale = 1f;
-        GameManager.gameManager.RequestToLoadScene(1);
+        SceneLoader(1);
     }
 
     public void Menu()
     {
+        SceneLoader(0);
+    }
+
+    private void SceneLoader(int index)
+    {
         Time.timeScale = 1f;
-        GameManager.gameManager.RequestToLoadScene(0);
+        Cursor.visible = true;
+        GameManager.gameManager.RequestToLoadScene(index);
     }
 }
