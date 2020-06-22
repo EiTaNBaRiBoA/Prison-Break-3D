@@ -103,6 +103,7 @@ public class Cop : MonoBehaviour
     }
     IEnumerator Walking()
     {
+        agent.stoppingDistance = 0;
         agent.SetDestination(new Vector3(waypoints[waypoint].transform.position.x, transform.position.y, waypoints[waypoint].transform.position.z));
         if (transform.position.x == waypoints[waypoint].transform.position.x && transform.position.z == waypoints[waypoint].transform.position.z)
         {
@@ -113,6 +114,7 @@ public class Cop : MonoBehaviour
 
     public void ConfirmTarget()
     {
+        agent.stoppingDistance = 2;
         agent.SetDestination(player.transform.position);
     }
 
