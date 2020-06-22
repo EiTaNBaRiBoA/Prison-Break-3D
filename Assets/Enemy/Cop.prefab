@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 6753128732987187052}
   m_Layer: 0
   m_Name: Cop
-  m_TagString: Untagged
+  m_TagString: Cop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -279,6 +279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   footsteps: {fileID: 8300000, guid: 0932a10640e1797f1a05a569031d2b0a, type: 3}
+  sfx: {fileID: 0}
 --- !u!1 &8115554975174073268
 GameObject:
   m_ObjectHideFlags: 0

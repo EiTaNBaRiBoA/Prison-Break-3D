@@ -12,8 +12,11 @@ public class PlayerMusic : MonoBehaviour
 
     public void PlayerSFX(AudioClip sfx)
     {
-        audioSource.clip = sfx;
-        audioSource.loop = false;
-        audioSource.Play();
+        if (sfx != null)
+        {
+            audioSource.clip = sfx;
+            audioSource.loop = false;
+            audioSource.Play();
+        }
     }
 }

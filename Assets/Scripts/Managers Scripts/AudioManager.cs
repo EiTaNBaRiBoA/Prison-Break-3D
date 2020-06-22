@@ -11,7 +11,6 @@ public class AudioManager : MonoBehaviour
 
     private AudioSource audioSource;
     public AudioClip[] musics;
-    public AudioClip[] sfxs;
 
 
         private void Awake() {
@@ -51,9 +50,8 @@ public class AudioManager : MonoBehaviour
             }
         }
     }
-    public void NarrativeSFX(AudioClip playerClip,AudioClip copClip)
+    public void NarrativeSFX(AudioClip playerClip)
     {
         FindObjectOfType<PlayerMusic>().PlayerSFX(playerClip);
-        FindObjectOfType<CopSFX>().NarrativeCop(copClip);
     }
 }
