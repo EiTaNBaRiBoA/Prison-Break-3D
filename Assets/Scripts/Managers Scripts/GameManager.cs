@@ -40,8 +40,6 @@ public sealed class GameManager : MonoBehaviour
     {
         levelManager = FindObjectOfType<LevelManager>();
     }
-
-
     #region loading scenes
     public void RequestToLoadScene(int buildIndex)
     {

@@ -12,9 +12,11 @@ public class LevelManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         Cursor.visible = true;
+
     }
     void Start()
     {
+        //AudioManager.audioManager.ChangeMusic("Main");
         LoadingNextScene(GameManager.gameManager.buildIndex,2f);
     }
     public void LoadingNextScene(int buildindex, float timeToWait)

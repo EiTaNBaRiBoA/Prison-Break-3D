@@ -9,8 +9,9 @@ public class AudioManager : MonoBehaviour
     private static AudioManager _instance;
     public static AudioManager audioManager{ get {return _instance;}}
 
-    public AudioClip[] music;
-    public AudioClip[] sfx;
+    private AudioSource audioSource;
+    public AudioClip[] musics;
+    public AudioClip[] sfxs;
 
 
         private void Awake() {
@@ -22,6 +23,7 @@ public class AudioManager : MonoBehaviour
         else
         {
             DontDestroyOnLoad(gameObject);
+            audioSource = FindObjectOfType<AudioSource>();
             _instance = this;
         }
     }
@@ -37,6 +39,21 @@ public class AudioManager : MonoBehaviour
             GameManager.gameManager.GetSFXVolume(Mathf.Log10(sfxVol)*20);
         }
 
-
-
+    public void ChangeMusic(string incomeMusic)
+    {
+        foreach (AudioClip music in musics)
+        {
+            if(music.name == incomeMusic)
+            {
+                audioSource.clip = music;
+                audioSource.loop = true;
+                audioSource.Play();
+            }
+        }
+    }
+    public void NarrativeSFX(AudioClip playerClip,AudioClip copClip)
+    {
+        FindObjectOfType<PlayerMusic>().PlayerSFX(playerClip);
+        FindObjectOfType<CopSFX>().NarrativeCop(copClip);
+    }
 }
