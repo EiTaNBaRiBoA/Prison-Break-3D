@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     #endregion
     #region Player Crouch
     private float playerOriginalHeight;
-    private float playerCrouchHeight = 0.1f;
+    private float playerCrouchHeight = 0.01f;
     public bool isCrouch;
     #endregion
     
@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
     void Crouch()
     {
         controller.height = isCrouch ? playerCrouchHeight:  playerOriginalHeight;
-        gameObject.transform.localScale = isCrouch ? new Vector3(1f,0.3f,1f):new Vector3(1f,0.6f,1f);
+        controller.radius = isCrouch ? 0.33f : 0.6f;
         speed = isCrouch ? 3f : 6f;
     }
 }

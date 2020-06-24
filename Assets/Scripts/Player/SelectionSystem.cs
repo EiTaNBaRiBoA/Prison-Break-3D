@@ -43,7 +43,7 @@ public class SelectionSystem : MonoBehaviour
                         if (itemName == item.GetComponent<Item>().itemPicked.currentItem.ToString())
                         {
                             item.GetComponent<Item>().Picked();
-                            // todo FindObjectOfType<> and do something/animation
+                            FindObjectOfType<HandItem>().ItemDestroy();
                         }
                     }
                 }
@@ -54,5 +54,7 @@ public class SelectionSystem : MonoBehaviour
     {
         ownedItems.Add(item.GetComponent<Item>().itemPicked.currentItem.ToString(), item);
         item.GetComponent<Item>().Picked();
+        FindObjectOfType<HandItem>().ItemDestroy();
+        FindObjectOfType<HandItem>().ItemInstantiate(item,item.GetComponent<Item>().localRotation();
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     public ItemSO itemPicked;
+    public Vector3 localRotation;
 
 
     public void Picked()
