@@ -49,17 +49,17 @@ The whole game environment and NPC and the player will be in low poly 3D.
 - Puzzle 1 - You as a player need to find a broken brick you can remove allowing you to create a hole in the wall to pass to the next level. (hammer)
 - Puzzle 2 - You go down through the stairs and need to find a key to use for the elevator to go first floor.
 - Puzzle 3 - You are in the first floor and you need to go undetected by the police officers using the lights and their shadows.
-- Puzzle 4 - (upcoming).
-- Puzzle 5 - (upcoming).
-- Puzzle 6 - (upcoming).
+- Puzzle 4 - sneaking through the house with two robot cops.
+- Puzzle 5 - stealing a gun.
+- Puzzle 6 - shooting a gun at the last robot cop.
   
 
 # Todo:
 - Add Flash light for the cops to show their vision through their eyes (white when scanning, Red when detecting).
-- Add puzzle 4, puzzle 5, puzzle 6 (need to GDD).
+- Add puzzle 4, puzzle 5, puzzle 6.
 - Add music backgrounds for each place and scene and SFX for foot steps and voice acting.
 - Add a gun to the game in the end for the player to shoot and run.
-- Fix lighting.
+
 - Redesign the Main Scene, pause system and game over scene. (fonts and backgrounds and buttons)
 - Remodel the cops.
 - Picking item Text to clearfy
@@ -73,10 +73,12 @@ The whole game environment and NPC and the player will be in low poly 3D.
 
 # Done:
 - hide cursor
+- Fix lighting.
 - Remove selection tries.
 - Combining the hot key F for using items and E for picking items to one hotkey E.
 - Make float for detection time to allow the player to hide and not lose so quickly.
 - Detection when near and standing.
+- hand items
 
 ### Additional Info:
 **Made with Unity3D**
