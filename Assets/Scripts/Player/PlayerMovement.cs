@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
     void Crouch()
     {
         controller.height = isCrouch ? playerCrouchHeight:  playerOriginalHeight;
-        controller.radius = isCrouch ? 0.33f : 0.6f;
+        controller.radius = isCrouch ? 0.4f : 0.6f;
         speed = isCrouch ? 3f : 6f;
     }
 }
