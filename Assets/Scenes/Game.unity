@@ -106,15 +106,15 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.49
-    agentHeight: 1
-    agentSlope: 31.1
-    agentClimb: 0.96
+    agentRadius: 0.71
+    agentHeight: 1.42
+    agentSlope: 17.6
+    agentClimb: 0.39
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.16333334
+    cellSize: 0.23666666
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
@@ -390,6 +390,28 @@ Transform:
   m_Father: {fileID: 1808491562}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
+--- !u!1 &161147092 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9038485020471263751, guid: a0eaca165a5b932a78e2d57600c9bb93,
+    type: 3}
+  m_PrefabInstance: {fileID: 5690393112849279448}
+  m_PrefabAsset: {fileID: 0}
+--- !u!208 &161147097
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161147092}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.010000001, y: 0.010000001, z: 0.010000001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1001 &168420935
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2601,31 +2623,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1933813735}
-    - target: {fileID: 8115554973695401415, guid: 0f3ca8b8ca16846b7aef5aafd058a7a6,
-        type: 3}
-      propertyPath: waypoints.Array.data[0]
-      value: 
-      objectReference: {fileID: 1061221148}
-    - target: {fileID: 8115554973695401415, guid: 0f3ca8b8ca16846b7aef5aafd058a7a6,
-        type: 3}
-      propertyPath: waypoints.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8115554973695401415, guid: 0f3ca8b8ca16846b7aef5aafd058a7a6,
-        type: 3}
-      propertyPath: waypoints.Array.data[2]
-      value: 
-      objectReference: {fileID: 307605750}
-    - target: {fileID: 8115554973695401415, guid: 0f3ca8b8ca16846b7aef5aafd058a7a6,
-        type: 3}
-      propertyPath: waypoints.Array.data[3]
-      value: 
-      objectReference: {fileID: 941874088}
-    - target: {fileID: 8115554973695401415, guid: 0f3ca8b8ca16846b7aef5aafd058a7a6,
-        type: 3}
-      propertyPath: waypoints.Array.data[4]
-      value: 
-      objectReference: {fileID: 1067869095}
     - target: {fileID: 8115554973695401415, guid: 0f3ca8b8ca16846b7aef5aafd058a7a6,
         type: 3}
       propertyPath: wanderMap
@@ -5919,17 +5916,17 @@ PrefabInstance:
     - target: {fileID: 485383417256515201, guid: a0eaca165a5b932a78e2d57600c9bb93,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 119
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2342859511597778402, guid: a0eaca165a5b932a78e2d57600c9bb93,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 119
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3314212993091585481, guid: a0eaca165a5b932a78e2d57600c9bb93,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 119
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 5690393113821654048, guid: a0eaca165a5b932a78e2d57600c9bb93,
         type: 3}
@@ -5994,7 +5991,7 @@ PrefabInstance:
     - target: {fileID: 6726740331937954326, guid: a0eaca165a5b932a78e2d57600c9bb93,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 119
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6945280047397475287, guid: a0eaca165a5b932a78e2d57600c9bb93,
         type: 3}
@@ -6004,27 +6001,27 @@ PrefabInstance:
     - target: {fileID: 7055636396858943116, guid: a0eaca165a5b932a78e2d57600c9bb93,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 119
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 8513155098211657045, guid: a0eaca165a5b932a78e2d57600c9bb93,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 119
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 8614353376633771028, guid: a0eaca165a5b932a78e2d57600c9bb93,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 119
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 9038485020471263751, guid: a0eaca165a5b932a78e2d57600c9bb93,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 119
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 9058204552733799662, guid: a0eaca165a5b932a78e2d57600c9bb93,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 119
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0eaca165a5b932a78e2d57600c9bb93, type: 3}
@@ -6208,7 +6205,7 @@ PrefabInstance:
     - target: {fileID: 8115554973695401418, guid: 0f3ca8b8ca16846b7aef5aafd058a7a6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.72
+      value: 11.31
       objectReference: {fileID: 0}
     - target: {fileID: 8115554973695401418, guid: 0f3ca8b8ca16846b7aef5aafd058a7a6,
         type: 3}

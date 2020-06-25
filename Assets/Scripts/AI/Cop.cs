@@ -18,6 +18,8 @@ public class Cop : MonoBehaviour
     void Start()
     {
         waypoints = wanderMap.GetComponentsInChildren<Transform>();
+        agent = gameObject.GetComponent<NavMeshAgent>();
+        agent.SetDestination(new Vector3(waypoints[waypoint].transform.position.x, transform.position.y, waypoints[waypoint].transform.position.z));
         player = FindObjectOfType<PlayerMovement>().gameObject;
 
     }
