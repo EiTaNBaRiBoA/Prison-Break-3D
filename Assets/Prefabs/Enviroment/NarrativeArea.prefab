@@ -107,3 +107,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: ee77766376dd7f23997aa5759aa15c38, type: 3}
+  copClip: {fileID: 8300000, guid: ee77766376dd7f23997aa5759aa15c38, type: 3}
