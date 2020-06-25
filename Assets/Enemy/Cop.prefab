@@ -167,12 +167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   agent: {fileID: 8115554973695401414}
-  waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  wanderMap: {fileID: 0}
 --- !u!82 &752703721013295728
 AudioSource:
   m_ObjectHideFlags: 0

@@ -8,23 +8,36 @@ public class Cop : MonoBehaviour
     public GameObject player;
     float maxDistance = 10f;
     public NavMeshAgent agent;
-    public GameObject[] waypoints;
+    public GameObject wanderMap;
     private float maxViewAngle = 45f;
     private float minViewAngle = -45f;
     private float timeAgentConfirm = 2f;
+    private Transform[] waypoints;
 
     int waypoint = 0;
     void Start()
     {
+        waypoints = wanderMap.GetComponentsInChildren<Transform>();
         player = FindObjectOfType<PlayerMovement>().gameObject;
 
     }
     private void Update()
     {
-        if (!FindObjectOfType<MenuManager>().isLost)
+        if (!FindObjectOfType<MenuManager>().isLost&&agent.speed>0)
         {
             StartCoroutine(AISeesTarget());
         }
+        else if (agent.speed<=0)
+        {
+            StartCoroutine(NavMeshStopped());
+        }
+    }
+
+    IEnumerator NavMeshStopped()
+    {
+            agent.enabled = false;
+            agent.enabled = true;
+            yield return new WaitForSeconds(timeAgentConfirm);
     }
 
     IEnumerator AISeesTarget()
@@ -107,7 +120,9 @@ public class Cop : MonoBehaviour
         agent.SetDestination(new Vector3(waypoints[waypoint].transform.position.x, transform.position.y, waypoints[waypoint].transform.position.z));
         if (transform.position.x == waypoints[waypoint].transform.position.x && transform.position.z == waypoints[waypoint].transform.position.z)
         {
+            agent.ResetPath();
             waypoint = Random.Range(0, waypoints.Length);
+            agent.SetDestination(new Vector3(waypoints[waypoint].transform.position.x, transform.position.y, waypoints[waypoint].transform.position.z));
         }
         yield return new WaitForSeconds(timeAgentConfirm);
     }
