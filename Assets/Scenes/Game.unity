@@ -5849,6 +5849,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: NarrativeArea
       objectReference: {fileID: 0}
+    - target: {fileID: 4848782504956259036, guid: 7c5583dc7e0f4fbcd875e8825b2c0be7,
+        type: 3}
+      propertyPath: audioClip
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4848782504956259037, guid: 7c5583dc7e0f4fbcd875e8825b2c0be7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5903,6 +5908,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848782504956259039, guid: 7c5583dc7e0f4fbcd875e8825b2c0be7,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 5.434173
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848782504956259039, guid: 7c5583dc7e0f4fbcd875e8825b2c0be7,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -2.2170868
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848782504956259039, guid: 7c5583dc7e0f4fbcd875e8825b2c0be7,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 4.053801
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848782504956259039, guid: 7c5583dc7e0f4fbcd875e8825b2c0be7,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 1.5269002
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c5583dc7e0f4fbcd875e8825b2c0be7, type: 3}

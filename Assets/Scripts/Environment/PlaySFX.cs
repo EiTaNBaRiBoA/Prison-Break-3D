@@ -24,7 +24,7 @@ public class PlaySFX : MonoBehaviour
             foreach (Collider cop in copColliders)
             {
                 Debug.Log("cop should be playing");
-                cop.GetComponent<CopSFX>().NarrativeCop();
+                cop.GetComponent<CopSFX>().NarrativeCop(copClip);
             }
             gameObject.SetActive(false);
         }

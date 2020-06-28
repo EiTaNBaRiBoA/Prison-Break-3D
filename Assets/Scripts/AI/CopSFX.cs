@@ -8,7 +8,7 @@ public class CopSFX : MonoBehaviour
     private AudioSource audioSource;
     private NavMeshAgent agent;
     public AudioClip footsteps;
-    public AudioClip sfx;
+    //public AudioClip sfx; to be modified to "I See you"
     void Start()
     {
         audioSource = FindObjectOfType<AudioSource>();
@@ -26,12 +26,12 @@ public class CopSFX : MonoBehaviour
         }
     }
 
-    public void NarrativeCop()
+    public void NarrativeCop(AudioClip copClip)
     {
-        if (sfx != null)
+        if (copClip != null)
         {
             audioSource.Stop();
-            audioSource.clip = sfx;
+            audioSource.clip = copClip;
             audioSource.loop = false;
             audioSource.Play();
         }
