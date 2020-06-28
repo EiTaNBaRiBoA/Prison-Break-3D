@@ -13,10 +13,13 @@ public class Cop : MonoBehaviour
     private float minViewAngle = -45f;
     private float timeAgentConfirm = 2f;
     private Transform[] waypoints;
+    private Animator animator;
 
     int waypoint = 0;
     void Start()
     {
+        animator = GetComponentInChildren<Animator>();
+        animator.SetBool("isWalking",false);
         waypoints = wanderMap.GetComponentsInChildren<Transform>();
         agent = gameObject.GetComponent<NavMeshAgent>();
         agent.SetDestination(new Vector3(waypoints[waypoint].transform.position.x, transform.position.y, waypoints[waypoint].transform.position.z));
@@ -32,6 +35,7 @@ public class Cop : MonoBehaviour
         else if (agent.speed<=0)
         {
             StartCoroutine(NavMeshStopped());
+            animator.SetBool("isWalking",false);
         }
     }
 
@@ -120,11 +124,13 @@ public class Cop : MonoBehaviour
     {
         agent.stoppingDistance = 0;
         agent.SetDestination(new Vector3(waypoints[waypoint].transform.position.x, transform.position.y, waypoints[waypoint].transform.position.z));
+        animator.SetBool("isWalking",true);
         if (transform.position.x == waypoints[waypoint].transform.position.x && transform.position.z == waypoints[waypoint].transform.position.z)
         {
             agent.ResetPath();
             waypoint = Random.Range(0, waypoints.Length);
             agent.SetDestination(new Vector3(waypoints[waypoint].transform.position.x, transform.position.y, waypoints[waypoint].transform.position.z));
+            animator.SetBool("isWalking",true);
         }
         yield return new WaitForSeconds(timeAgentConfirm);
     }
