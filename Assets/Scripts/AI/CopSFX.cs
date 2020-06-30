@@ -11,8 +11,8 @@ public class CopSFX : MonoBehaviour
     //public AudioClip sfx; to be modified to "I See you"
     void Start()
     {
-        audioSource = FindObjectOfType<AudioSource>();
-        agent = FindObjectOfType<NavMeshAgent>();
+        audioSource = GetComponent<AudioSource>();
+        agent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame

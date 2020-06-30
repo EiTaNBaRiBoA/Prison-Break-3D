@@ -58,11 +58,6 @@ The whole game environment and NPC and the player will be in low poly 3D.
 - Add Flash light for the cops to show their vision through their eyes (white when scanning, Red when detecting).
 - Add puzzle 4, puzzle 5, puzzle 6.
 - Add music backgrounds for each place and scene and SFX for foot steps and voice acting.
-- Add a gun to the game in the end for the player to shoot and run.
-
-- Redesign the Main Scene, pause system and game over scene. (fonts and backgrounds and buttons)
-- Remodel the cops.
-- Picking item Text to clearfy
 - Add more props (optional).
 - Check points (optional). 
 - Losing reason (Like killcam).
@@ -79,6 +74,10 @@ The whole game environment and NPC and the player will be in low poly 3D.
 - Make float for detection time to allow the player to hide and not lose so quickly.
 - Detection when near and standing.
 - hand items
+- Remodel the cops.
+- Picking item Text to clearfy
+- Add a gun to the game in the end for the player to shoot and run.
+- Redesign the Main Scene, pause system and game over scene. (fonts and backgrounds and buttons)
 
 ### Additional Info:
 **Made with Unity3D**
