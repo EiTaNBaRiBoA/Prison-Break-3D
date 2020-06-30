@@ -8,8 +8,5 @@ public class Item : MonoBehaviour
     public Vector3 localRotation;
 
 
-    public void Picked()
-    {
-        gameObject.SetActive(false);
-    }
+
 }
