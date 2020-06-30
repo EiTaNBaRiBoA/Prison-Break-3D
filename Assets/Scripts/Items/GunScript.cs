@@ -6,6 +6,7 @@ public class GunScript : MonoBehaviour, IPickable
 {
 
     public GameObject shotVFX;
+    public Transform shotArea;
     public void Picked()
     {
         gameObject.SetActive(false);
@@ -18,13 +19,14 @@ public class GunScript : MonoBehaviour, IPickable
             RaycastHit hit;
             if (Input.GetMouseButtonDown(0))
             {
+                GameObject bullet = Instantiate(shotVFX,shotArea.position,Quaternion.identity);
+                bullet.transform.parent = shotArea.transform;
                 if (Physics.Raycast(shooting, out hit, 10f))
                 {
                     if (hit.transform.gameObject.CompareTag("Cop"))
                     {
                         hit.transform.gameObject.GetComponent<CopSFX>().OnDeath();
                     }
-
                 }
             }
         }

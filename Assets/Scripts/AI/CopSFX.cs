@@ -42,7 +42,6 @@ public class CopSFX : MonoBehaviour
 
     public void OnDeath()
     {
-        audioSource.Stop();
         Destroy(gameObject);
     }
 }
