@@ -19,8 +19,7 @@ public class GunScript : MonoBehaviour, IPickable
             RaycastHit hit;
             if (Input.GetMouseButtonDown(0))
             {
-                GameObject bullet = Instantiate(shotVFX,shotArea.position,Quaternion.identity);
-                bullet.transform.parent = shotArea.transform;
+                Instantiate(shotVFX,shotArea.position,Quaternion.identity,shotArea.transform);
                 if (Physics.Raycast(shooting, out hit, 10f))
                 {
                     if (hit.transform.gameObject.CompareTag("Cop"))
