@@ -12,7 +12,6 @@ public class PlaySFX : MonoBehaviour
     {
         if (other.CompareTag("Cop"))
         {
-            Debug.Log("cop added to the list");
             if (!copColliders.Contains(other))
             {
                 copColliders.Add(other);
@@ -23,8 +22,14 @@ public class PlaySFX : MonoBehaviour
             AudioManager.audioManager.NarrativeSFX(audioClip);
             foreach (Collider cop in copColliders)
             {
-                Debug.Log("cop should be playing");
-                cop.GetComponent<CopSFX>().NarrativeCop(copClip);
+                if (cop.gameObject ==null)
+                {
+                    copColliders.Remove(cop);
+                }
+                else
+                {
+                    cop.GetComponent<CopSFX>().NarrativeCop(copClip);
+                }
             }
             gameObject.SetActive(false);
         }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class GunScript : MonoBehaviour, IPickable
 {
 
-
+    public GameObject shotVFX;
     public void Picked()
     {
         gameObject.SetActive(false);
@@ -18,11 +18,11 @@ public class GunScript : MonoBehaviour, IPickable
             RaycastHit hit;
             if (Input.GetMouseButtonDown(0))
             {
-                if (Physics.Raycast(shooting, out hit, 5f))
+                if (Physics.Raycast(shooting, out hit, 10f))
                 {
                     if (hit.transform.gameObject.CompareTag("Cop"))
                     {
-                        hit.transform.gameObject.SetActive(false);
+                        hit.transform.gameObject.GetComponent<CopSFX>().OnDeath();
                     }
 
                 }

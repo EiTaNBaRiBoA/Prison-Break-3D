@@ -18,11 +18,14 @@ public class CopSFX : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (agent.speed > 0f && !audioSource.isPlaying)
+        if (agent != null)
         {
-            audioSource.clip = footsteps;
-            audioSource.loop = true;
-            audioSource.Play();
+            if (agent.speed > 0f && !audioSource.isPlaying)
+            {
+                audioSource.clip = footsteps;
+                audioSource.loop = true;
+                audioSource.Play();
+            }
         }
     }
 
@@ -35,5 +38,11 @@ public class CopSFX : MonoBehaviour
             audioSource.loop = false;
             audioSource.Play();
         }
+    }
+
+    public void OnDeath()
+    {
+        audioSource.Stop();
+        Destroy(gameObject);
     }
 }
