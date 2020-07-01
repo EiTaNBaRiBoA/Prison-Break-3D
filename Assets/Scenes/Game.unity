@@ -7710,6 +7710,11 @@ PrefabInstance:
       propertyPath: copClip
       value: 
       objectReference: {fileID: 8300000, guid: 51332eebb5dc3bbfc9b735bb186796b4, type: 3}
+    - target: {fileID: 4848782504956259036, guid: 7c5583dc7e0f4fbcd875e8825b2c0be7,
+        type: 3}
+      propertyPath: musicSound
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4848782504956259037, guid: 7c5583dc7e0f4fbcd875e8825b2c0be7,
         type: 3}
       propertyPath: m_LocalPosition.x

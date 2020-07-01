@@ -6,6 +6,7 @@ public class PlaySFX : MonoBehaviour
 {
     public AudioClip audioClip;
     public AudioClip copClip;
+    public int musicSound;
 
     private List<Collider> copColliders = new List<Collider>();
     private void OnTriggerEnter(Collider other)
@@ -19,7 +20,8 @@ public class PlaySFX : MonoBehaviour
         }
         if (other.CompareTag("Player"))
         {
-            AudioManager.audioManager.NarrativeSFX(audioClip);
+            //AudioManager.audioManager.NarrativeSFX(audioClip);
+            AudioManager.audioManager.ChangeMusic(musicSound);
             foreach (Collider cop in copColliders)
             {
                 if (cop.gameObject ==null)
