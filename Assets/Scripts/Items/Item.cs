@@ -6,6 +6,7 @@ public class Item : MonoBehaviour
 {
     public ItemSO itemPicked;
     public Vector3 localRotation;
+    public Vector3 offsetPosition;
 
 
 

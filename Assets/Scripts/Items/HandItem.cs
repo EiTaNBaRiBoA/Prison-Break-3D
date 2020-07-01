@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class HandItem : MonoBehaviour
 {
-    public void ItemInstantiate(GameObject itemToHand,Vector3 rotation)
+    public Transform handLocation;
+    public void ItemInstantiate(GameObject itemToHand,Vector3 rotation,Vector3 position)
     {
-        GameObject item = Instantiate(itemToHand,transform.position,Quaternion.identity,this.transform);
+        GameObject item = Instantiate(itemToHand,handLocation.position,Quaternion.identity,this.transform);
+        item.transform.localPosition += position;
         item.transform.localRotation= Quaternion.Euler(rotation);
         item.SetActive(true);
     }

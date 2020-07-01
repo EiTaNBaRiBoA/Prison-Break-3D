@@ -9,6 +9,7 @@ public class GunScript : MonoBehaviour, IPickable
     public Transform shotArea;
     private AudioSource audioSource;
     public AudioClip shot;
+    private bool isPicked = false;
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -20,10 +21,19 @@ public class GunScript : MonoBehaviour, IPickable
         gameObject.SetActive(false);
     }
 
+    private void OnPicked()
+    {
+        transform.localScale /= 3;
+    }
     private void Update()
     {
         if (transform.parent.gameObject == FindObjectOfType<HandItem>().gameObject)
         {
+            if (!isPicked)
+            {
+                OnPicked();
+                isPicked = true;
+            }
             Ray shooting = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
             RaycastHit hit;
             if (Input.GetMouseButtonDown(0))

@@ -55,6 +55,6 @@ public class SelectionSystem : MonoBehaviour
         ownedItems.Add(item.GetComponent<Item>().itemPicked.currentItem.ToString(), item);
         item.GetComponent<IPickable>().Picked();
         FindObjectOfType<HandItem>().ItemDestroy();
-        FindObjectOfType<HandItem>().ItemInstantiate(item,item.GetComponent<Item>().localRotation);
+        FindObjectOfType<HandItem>().ItemInstantiate(item,item.GetComponent<Item>().localRotation,item.GetComponent<Item>().offsetPosition);
     }
 }
