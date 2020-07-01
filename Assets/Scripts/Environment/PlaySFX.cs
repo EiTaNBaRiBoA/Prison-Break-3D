@@ -31,6 +31,7 @@ public class PlaySFX : MonoBehaviour
                 else
                 {
                     cop.GetComponent<CopSFX>().NarrativeCop(copClip);
+                    break;
                 }
             }
             gameObject.SetActive(false);

@@ -11,7 +11,7 @@ public class Cop : MonoBehaviour
     public GameObject wanderMap;
     private float maxViewAngle = 45f;
     private float minViewAngle = -45f;
-    private float timeAgentConfirm = 4f;
+    private float timeAgentConfirm = 3f;
     private Transform[] waypoints;
     private Animator animator;
     public AudioClip[] copSeesYou;
@@ -139,7 +139,7 @@ public class Cop : MonoBehaviour
 
     public void ConfirmTarget()
     {
-        agent.stoppingDistance = 2;
+        agent.stoppingDistance = 3;
         agent.SetDestination(player.transform.position);
     }
 
