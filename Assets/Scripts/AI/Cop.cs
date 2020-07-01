@@ -15,6 +15,7 @@ public class Cop : MonoBehaviour
     private Transform[] waypoints;
     private Animator animator;
     public AudioClip[] copSeesYou;
+    public int walkingDistance;
 
     int waypoint = 0;
     void Start()
@@ -124,10 +125,11 @@ public class Cop : MonoBehaviour
     }
     IEnumerator Walking()
     {
-        agent.stoppingDistance = 0;
+        agent.stoppingDistance = walkingDistance;
         agent.SetDestination(new Vector3(waypoints[waypoint].transform.position.x, transform.position.y, waypoints[waypoint].transform.position.z));
         animator.SetBool("isWalking",true);
-        if (transform.position.x == waypoints[waypoint].transform.position.x && transform.position.z == waypoints[waypoint].transform.position.z)
+        //if (transform.position.x == waypoints[waypoint].transform.position.x && transform.position.z == waypoints[waypoint].transform.position.z)
+        if(agent.remainingDistance<=2)
         {
             agent.ResetPath();
             waypoint = Random.Range(0, waypoints.Length);
