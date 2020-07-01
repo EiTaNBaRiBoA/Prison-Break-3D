@@ -128,8 +128,15 @@ public class Cop : MonoBehaviour
         agent.stoppingDistance = walkingDistance;
         agent.SetDestination(new Vector3(waypoints[waypoint].transform.position.x, transform.position.y, waypoints[waypoint].transform.position.z));
         animator.SetBool("isWalking",true);
-        //if (transform.position.x == waypoints[waypoint].transform.position.x && transform.position.z == waypoints[waypoint].transform.position.z)
-        if(agent.remainingDistance<=2)
+        if (transform.position.x == waypoints[waypoint].transform.position.x && transform.position.z == waypoints[waypoint].transform.position.z)
+        {
+        
+            agent.ResetPath();
+            waypoint = Random.Range(0, waypoints.Length);
+            agent.SetDestination(new Vector3(waypoints[waypoint].transform.position.x, transform.position.y, waypoints[waypoint].transform.position.z));
+            animator.SetBool("isWalking",true);
+        }
+        else if(agent.remainingDistance<=2)
         {
             agent.ResetPath();
             waypoint = Random.Range(0, waypoints.Length);
