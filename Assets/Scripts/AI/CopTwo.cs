@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Cop : MonoBehaviour
+public class CopTwo : MonoBehaviour
 {
     public GameObject player;
     float maxDistance = 10f;
@@ -30,22 +30,22 @@ public class Cop : MonoBehaviour
     }
     private void Update()
     {
-        if (!FindObjectOfType<MenuManager>().isLost&&agent.speed>0)
+        if (!FindObjectOfType<MenuManager>().isLost)
         {
             StartCoroutine(AISeesTarget());
         }
         else if (agent.speed<=0)
         {
-            StartCoroutine(NavMeshStopped());
+            NavMeshStopped();
             animator.SetBool("isWalking",false);
         }
     }
 
-    IEnumerator NavMeshStopped()
+    void NavMeshStopped()
     {
             agent.enabled = false;
             agent.enabled = true;
-            yield return new WaitForSeconds(timeAgentConfirm);
+            
     }
 
     IEnumerator AISeesTarget()
@@ -53,7 +53,6 @@ public class Cop : MonoBehaviour
         if (CopScanArea() || Vector3.Distance(player.transform.position, this.transform.position) <= maxDistance && !FindObjectOfType<PlayerMovement>().isCrouch)
         {
             agent.ResetPath();
-            StopCoroutine(Walking());
             Ray ray = new Ray(transform.position, player.transform.position - transform.position);
             RaycastHit playerCheck;
             if (Physics.Raycast(ray, out playerCheck, maxDistance))
@@ -66,7 +65,7 @@ public class Cop : MonoBehaviour
                     if (Vector3.Angle(transform.forward, player.transform.position - transform.position) <= 35 && CopScanArea())
                     {
                         StartCoroutine(SpeakToThePlayer());
-                        ConfirmTarget(); // going towards targets to confirm with red eyes
+                        ConfirmTarget();
 
                         yield return new WaitForSeconds(timeAgentConfirm);
                         if (CopScanArea())
@@ -78,17 +77,22 @@ public class Cop : MonoBehaviour
                 }
                 else
                 {
-                    StartCoroutine(Walking());
+                    Walking();
                 }
             }
             else if (CopScanArea())
             {
-                ConfirmTarget(); // going towards targets to confirm with red eyes
+                ConfirmTarget(); 
 
                 yield return new WaitForSeconds(timeAgentConfirm);
                 if (CopScanArea())
                 {
                     FindObjectOfType<MenuManager>().LosingCanvas();
+                }
+                else
+                {
+                    NavMeshStopped();
+                    Walking();
                 }
             }
 
@@ -96,7 +100,7 @@ public class Cop : MonoBehaviour
         }
         else
         {
-            StartCoroutine(Walking());
+            Walking();
         }
         yield return null;
     }
@@ -123,24 +127,22 @@ public class Cop : MonoBehaviour
         }
         return false;
     }
-    IEnumerator Walking()
+    void Walking()
     {
         agent.stoppingDistance = walkingDistance;
-        agent.SetDestination(new Vector3(waypoints[waypoint].transform.position.x, transform.position.y, waypoints[waypoint].transform.position.z));
+        //agent.SetDestination(new Vector3(waypoints[waypoint].transform.position.x, transform.position.y, waypoints[waypoint].transform.position.z));
         animator.SetBool("isWalking",true);
-        if (transform.position.x == waypoints[waypoint].transform.position.x && transform.position.z == waypoints[waypoint].transform.position.z)
+        if (transform.position.x == waypoints[waypoint].transform.position.x && transform.position.z == waypoints[waypoint].transform.position.z || agent.remainingDistance<=1)
         {
-            agent.ResetPath();
             waypoint = Random.Range(0, waypoints.Length);
             agent.SetDestination(new Vector3(waypoints[waypoint].transform.position.x, transform.position.y, waypoints[waypoint].transform.position.z));
             animator.SetBool("isWalking",true);
         }
-        yield return new WaitForSeconds(timeAgentConfirm);
     }
 
     public void ConfirmTarget()
     {
-        agent.stoppingDistance = 3;
+        agent.stoppingDistance = 1;
         agent.SetDestination(player.transform.position);
     }
 
