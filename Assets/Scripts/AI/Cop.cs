@@ -11,9 +11,10 @@ public class Cop : MonoBehaviour
     public GameObject wanderMap;
     private float maxViewAngle = 45f;
     private float minViewAngle = -45f;
-    private float timeAgentConfirm = 2f;
+    private float timeAgentConfirm = 4f;
     private Transform[] waypoints;
     private Animator animator;
+    public AudioClip[] copSeesYou;
 
     int waypoint = 0;
     void Start()
@@ -63,6 +64,7 @@ public class Cop : MonoBehaviour
                       timeAgentConfirm * Time.deltaTime);
                     if (Vector3.Angle(transform.forward, player.transform.position - transform.position) <= 35 && CopScanArea())
                     {
+                        StartCoroutine(SpeakToThePlayer());
                         ConfirmTarget(); // going towards targets to confirm with red eyes
 
                         yield return new WaitForSeconds(timeAgentConfirm);
@@ -141,4 +143,9 @@ public class Cop : MonoBehaviour
         agent.SetDestination(player.transform.position);
     }
 
+    IEnumerator SpeakToThePlayer()
+    {
+        GetComponent<CopSFX>().NarrativeCop(copSeesYou);
+        yield return new WaitForSeconds(timeAgentConfirm+2);
+    }
 }

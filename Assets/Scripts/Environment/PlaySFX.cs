@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlaySFX : MonoBehaviour
 {
     public AudioClip audioClip;
-    public AudioClip copClip;
+    public AudioClip[] copClip;
     public int musicSound;
 
     private List<Collider> copColliders = new List<Collider>();
