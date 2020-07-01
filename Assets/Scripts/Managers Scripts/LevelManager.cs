@@ -16,7 +16,7 @@ public class LevelManager : MonoBehaviour
     }
     void Start()
     {
-        //AudioManager.audioManager.ChangeMusic("Main");
+        AudioManager.audioManager.ChangeMusic(GameManager.gameManager.buildIndex);
         LoadingNextScene(GameManager.gameManager.buildIndex,2f);
     }
     public void LoadingNextScene(int buildindex, float timeToWait)

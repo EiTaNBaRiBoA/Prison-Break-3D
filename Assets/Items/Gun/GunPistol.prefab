@@ -142,6 +142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shotVFX: {fileID: 5150636514896717800, guid: 53b854db89409d3dfbf68a163235c32b, type: 3}
   shotArea: {fileID: 1669897588}
+  shot: {fileID: 8300000, guid: f9310e2745dadeb08a2e4167d8ad39ec, type: 3}
 --- !u!114 &919132148603895167
 MonoBehaviour:
   m_ObjectHideFlags: 0

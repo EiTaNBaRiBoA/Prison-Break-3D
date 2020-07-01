@@ -142,9 +142,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musics:
-  - {fileID: 8300000, guid: ee77766376dd7f23997aa5759aa15c38, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  sfxs: []
+  - {fileID: 8300000, guid: f42ca3dfbee69583b97bc6499b4433f1, type: 3}
+  - {fileID: 8300000, guid: 0daf4710c4b0f68a19d319dd3ed8201b, type: 3}
+  - {fileID: 8300000, guid: 96346071eaf13e7c6bfcac3997522063, type: 3}
+  - {fileID: 8300000, guid: bd53a331d764bfccba19f890e44518e2, type: 3}
+  - {fileID: 8300000, guid: 8a827dce1e3590af2858c7f87039b7ba, type: 3}
+  - {fileID: 8300000, guid: 8ac7cbef5ceaa9e418261a5291e25325, type: 3}
+  - {fileID: 8300000, guid: bc1417f46622604dd83e99af12f57210, type: 3}
+  - {fileID: 8300000, guid: 7d93d94c0362d612b9c2dd416f7a83f2, type: 3}
+  - {fileID: 8300000, guid: 7407642099a825a4cbac217bf3ccffd5, type: 3}
+  - {fileID: 8300000, guid: aa5d03431fbcde7c8b868c63494fb53b, type: 3}

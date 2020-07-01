@@ -18,7 +18,7 @@ public class CopSFX : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (agent != null)
+        if (agent != null && audioSource.enabled == true)
         {
             if (agent.speed > 0f && !audioSource.isPlaying)
             {
@@ -31,7 +31,7 @@ public class CopSFX : MonoBehaviour
 
     public void NarrativeCop(AudioClip copClip)
     {
-        if (copClip != null)
+        if (copClip != null && audioSource.enabled == true)
         {
             audioSource.Stop();
             audioSource.clip = copClip;

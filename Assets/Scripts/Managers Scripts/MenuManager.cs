@@ -46,6 +46,12 @@ public class MenuManager : MonoBehaviour
     public void LosingCanvas()
     {
         isLost = true;
+        AudioSource[] audioSources = FindObjectsOfType<AudioSource>();
+        foreach (AudioSource audio in audioSources)
+        {
+            if(!audio.gameObject.GetComponent<AudioManager>())
+            audio.enabled = false;
+        }
         OpenMenuUI(losingCanvas.gameObject,true,0,CursorLockMode.None);
     }
 
