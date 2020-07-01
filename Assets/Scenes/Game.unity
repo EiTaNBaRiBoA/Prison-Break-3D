@@ -949,6 +949,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 60543474}
     m_Modifications:
+    - target: {fileID: 1002751480, guid: 0f3ca8b8ca16846b7aef5aafd058a7a6, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002751480, guid: 0f3ca8b8ca16846b7aef5aafd058a7a6, type: 3}
+      propertyPath: MaxDistance
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 8115554973695401412, guid: 0f3ca8b8ca16846b7aef5aafd058a7a6,
         type: 3}
       propertyPath: m_Name
@@ -2474,6 +2482,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1185286444}
     m_Modifications:
+    - target: {fileID: 1002751480, guid: 0f3ca8b8ca16846b7aef5aafd058a7a6, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002751480, guid: 0f3ca8b8ca16846b7aef5aafd058a7a6, type: 3}
+      propertyPath: MaxDistance
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 8115554973695401412, guid: 0f3ca8b8ca16846b7aef5aafd058a7a6,
         type: 3}
       propertyPath: m_Name
@@ -2564,6 +2580,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 60543474}
     m_Modifications:
+    - target: {fileID: 1002751480, guid: 0f3ca8b8ca16846b7aef5aafd058a7a6, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002751480, guid: 0f3ca8b8ca16846b7aef5aafd058a7a6, type: 3}
+      propertyPath: MaxDistance
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 8115554973695401412, guid: 0f3ca8b8ca16846b7aef5aafd058a7a6,
         type: 3}
       propertyPath: m_Name
@@ -3659,6 +3683,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 190147865}
     m_Modifications:
+    - target: {fileID: 1002751480, guid: 0f3ca8b8ca16846b7aef5aafd058a7a6, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002751480, guid: 0f3ca8b8ca16846b7aef5aafd058a7a6, type: 3}
+      propertyPath: MaxDistance
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 752703721013295728, guid: 0f3ca8b8ca16846b7aef5aafd058a7a6,
         type: 3}
       propertyPath: rolloffCustomCurve.m_Curve.Array.size
@@ -4558,6 +4590,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 752556224}
     m_Modifications:
+    - target: {fileID: 1002751480, guid: 0f3ca8b8ca16846b7aef5aafd058a7a6, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002751480, guid: 0f3ca8b8ca16846b7aef5aafd058a7a6, type: 3}
+      propertyPath: MaxDistance
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 8115554973695401412, guid: 0f3ca8b8ca16846b7aef5aafd058a7a6,
         type: 3}
       propertyPath: m_Name
@@ -5398,6 +5438,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1185286444}
     m_Modifications:
+    - target: {fileID: 1002751480, guid: 0f3ca8b8ca16846b7aef5aafd058a7a6, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002751480, guid: 0f3ca8b8ca16846b7aef5aafd058a7a6, type: 3}
+      propertyPath: MaxDistance
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 8115554973695401412, guid: 0f3ca8b8ca16846b7aef5aafd058a7a6,
         type: 3}
       propertyPath: m_Name
@@ -6613,6 +6661,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 752556224}
     m_Modifications:
+    - target: {fileID: 1002751480, guid: 0f3ca8b8ca16846b7aef5aafd058a7a6, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002751480, guid: 0f3ca8b8ca16846b7aef5aafd058a7a6, type: 3}
+      propertyPath: MaxDistance
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 8115554973695401412, guid: 0f3ca8b8ca16846b7aef5aafd058a7a6,
         type: 3}
       propertyPath: m_Name
@@ -9076,6 +9132,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 566070556}
     m_Modifications:
+    - target: {fileID: 1002751480, guid: 0f3ca8b8ca16846b7aef5aafd058a7a6, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002751480, guid: 0f3ca8b8ca16846b7aef5aafd058a7a6, type: 3}
+      propertyPath: MaxDistance
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 8115554973695401412, guid: 0f3ca8b8ca16846b7aef5aafd058a7a6,
         type: 3}
       propertyPath: m_Name
