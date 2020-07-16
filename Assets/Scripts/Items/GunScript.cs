@@ -40,7 +40,7 @@ public class GunScript : MonoBehaviour, IPickable
             {
                 Instantiate(shotVFX, shotArea.position, Quaternion.identity, shotArea.transform);
                 audioSource.PlayOneShot(shot);
-                if (Physics.Raycast(shooting, out hit, 10f))
+                if (Physics.Raycast(shooting, out hit, 20f))
                 {
                     if (hit.transform.gameObject.CompareTag("Cop"))
                     {
